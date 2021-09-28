@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  commit-viewer-app:
+    build:
+      context: ../..
+      dockerfile: infra/commit-viewer/Dockerfile
+    image: commit-viewer-app:latest
+    ports:
+      - 8080:8080
+      - 5005:5005
