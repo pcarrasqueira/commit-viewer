@@ -53,7 +53,7 @@ To stop it jus run :
 make stop-app
 ```
 
-###Now you can test the commit viewer app 🚨🪲👀
+### Now you can test the commit viewer app 🚨🪲👀
 ```shell script
 curl --location --request GET 'http://localhost:8080/commit-viewer/pcarrasqueira/commit-viewer-test?page=1&per_page=1'
 ```
