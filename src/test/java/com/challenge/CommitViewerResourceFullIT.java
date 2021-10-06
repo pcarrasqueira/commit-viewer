@@ -143,4 +143,5 @@ public class CommitViewerResourceFullIT {
                   "message", is(ErrorCodeImpl.BAD_REQUEST.getMessage()));
     }
 
+    //TODO: add more tests for database scenarios
 }

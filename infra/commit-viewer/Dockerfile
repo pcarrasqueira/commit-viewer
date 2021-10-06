@@ -52,7 +52,7 @@ COPY --from=build --chown=1001 app/target/quarkus-app/*.jar /deployments/
 COPY --from=build --chown=1001 app/target/quarkus-app/app/ /deployments/app/
 COPY --from=build --chown=1001 app/target/quarkus-app/quarkus/ /deployments/quarkus/
 
-EXPOSE 8080 5005
+EXPOSE 8080
 USER 1001
 
 ENTRYPOINT [ "/deployments/run-java.sh" ]

@@ -7,6 +7,7 @@ package com.challenge.model.api.mapper;
 
 import com.challenge.model.api.dto.CommitInfoDto;
 import com.challenge.model.api.dto.GitHubApiCommitDto;
+import com.challenge.model.jpa.CommitInfoEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,4 +41,8 @@ public abstract class CommitViewerMapper {
     //Iterable Mapper to get List of CommitInfoDto from a List of GitHubApiCommitDto
     @IterableMapping(qualifiedByName = "gitHubApiCommitDtoToCommitInfoDto")
     public abstract List<CommitInfoDto> gitHubApiCommitDtoListToCommitInfoDtoList(List<GitHubApiCommitDto> gitHubApiCommit);
+
+    //Map CommitInfoEntity to CommitInfoDto
+    @Mapping(target = "sha", source = "id.sha")
+    public abstract CommitInfoDto commitInfoEntityToCommitInfoDto(CommitInfoEntity commitInfoEntity);
 }
