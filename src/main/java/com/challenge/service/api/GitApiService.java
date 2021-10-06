@@ -106,7 +106,7 @@ public class GitApiService {
                     }
                 }
 
-                if (apiCall == 1) {
+                if (apiCall == page) {
                     commitInfoDtoList = commitViewerMapper.gitHubApiCommitDtoListToCommitInfoDtoList(gitHubApiCommitList);
                 }
 
