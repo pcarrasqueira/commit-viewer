@@ -10,6 +10,9 @@ You can force the use of the CLI with property :
 ```
 commit-viewer.force-use-cli=true
 ```
+Database support was added, now firs time we fetch commits for a repo, we will save the data to database. Subsequent requests
+will fetch the data directly from database.
+
 
 In order to increase resiliency of the application, retries, timeouts and fallbacks were implemented using [SmallRye Fault Tolerance](https://github.com/smallrye/smallrye-fault-tolerance/)
 priveded by Quarkus. You can configure the fault tolerance values on application.properties, eg :
@@ -29,11 +32,13 @@ Checkstyle validation is active on build phase and is using a checker based on [
 
 To run the application locally in dev mode run :
 ```shell script
+make start-db
 make dev-mode
 ```
 
 Package and run the jar application :
 ```shell script
+make start-db
 make package
 java -jar target/quarkus-app/quarkus-run.jar
 ```
@@ -70,9 +75,11 @@ Targets :
    install .............Install the package into local repository after validate, compile, test and package the source code
    package .............Take the compiled code and package it in a JAR at target/quarkus-app/quarkus-run.jar
    run-tests ...........Run integration tests
-   start-all ...........Start a docker container with commit-viewer app
-   stop-all ............Stop commit-viewer app docker container
+   start-app ...........Start a docker container with commit-viewer app
+   stop-app ............Stop commit-viewer app docker container
+   remove-app ..........Stop and remove the docker container with commit-viewer app
+   start-db ............Start a docker container with database
+   stop-db .............Stop the docker container with database
    run-checkstyle ......Run checkstyle over code
    help ................Prints this help message
-
 ```
