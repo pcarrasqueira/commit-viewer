@@ -3,7 +3,7 @@
  * Paulo Carrasqueira
  */
 
-package com.challenge.model.api.mapper;
+package com.challenge.model.mapper;
 
 import com.challenge.model.api.dto.CommitInfoDto;
 import com.challenge.model.api.dto.GitHubApiCommitDto;

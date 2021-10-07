@@ -13,9 +13,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.Table;
 import java.time.Instant;
 
@@ -23,12 +23,13 @@ import java.time.Instant;
 @Data
 @AllArgsConstructor(staticName = "of")
 @NoArgsConstructor
-@Table(name = "commits", indexes = @Index(name = "idIndex", columnList = "sha, repository"))
+@Table(name = "commits")
 public class CommitInfoEntity extends PanacheEntityBase {
 
     @EmbeddedId
     CommitInfoId id;
 
+    @Column(columnDefinition = "TEXT", length = 500)
     private String message;
 
     private Instant date;
